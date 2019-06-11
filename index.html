@@ -31,7 +31,7 @@
                     <li>
                         <label class="left-label">出生年月</label><span class="label-value">1988.02</span></li>
                     <li>
-                        <label class="left-label">github</label><span class="label-value">github.com/lixuekaibit</span></li>
+                        <label class="left-label">微信</label><span class="label-value">lixuekai</span></li>
                 </ul>
             </div>
             <div class="contact info-unit">
@@ -74,7 +74,7 @@
                         <label class="left-label">系统</label><span class="label-value">unix/linux,k8s,docker</span></li>
                     </li>
                     <li>
-                        <label class="left-label">数据库</label><span class="label-value">mysql,redis,mangodb</span></li>
+                        <label class="left-label">数据库</label><span class="label-value">mysql,redis,codis</span></li>
                     </li>
                     <li>
                         <label class="left-label">其他</label><span class="label-value">kafka,RabbitMQ,spark</span></li>
@@ -105,13 +105,12 @@
                 <hr>
                 <ul class="experience-list">
                     <li>
-                        <h3>北京智能互联有限公司(roobo)  2017.08-2018.10</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
+                        <h3>北京蜜莱坞网络科技有限公司(映客)  2017.08-至今</h3>
+                        <p>供职于映客的创新项目组，开发内部短视频项目，服务端一组负责人，实现了项目的微服务化，主要包括服务的自注册和发现（基于consul），RPC服务调用，长连接消息系统以及trace系统，实现了服务的高效部署，高可用性及稳定调用。业务上主要支持金币系统，由于业务增长快，在快速实现业务需求的同时，解决了金币系统一些问题，包括风控，账户一致性，高峰波动，数据库性能瓶颈，保证了金币系统的稳定高效。</p>
                     </li>
                     <li>
                         <h3>北京小桔科技科技有限公司(滴滴)   2016.01-2017.08</h3>
-                        <p>在职期间主要负责平台的⽀支付系统，对原⽀支付系统进⾏行行重构，改变了了滴滴原有的各业务渠道⽀支付不不统⼀一的问题，收敛⽀支付系统，实现全平台的统⼀一接⼊入，并⽀支持财务的⾃自动对账，BI，以及监控等，且保证了了⽀支付较⾼高的稳定性和可⽤用性（主要接⼝口⾼高峰⽇日均qps在20000左右）。
+                        <p>在职期间主要负责平台的⽀支付系统，对原支付系统进⾏行行重构，改变了了滴滴原有的各业务渠道⽀支付不不统⼀一的问题，收敛⽀支付系统，实现全平台的统⼀一接⼊入，并⽀支持财务的⾃自动对账，BI，以及监控等，且保证了了⽀支付较⾼高的稳定性和可⽤用性（主要接⼝口⾼高峰⽇日均qps在20000左右）。
                         </p>
                     </li>
                     <li>
@@ -131,30 +130,34 @@
                 <hr>
                 <ul class="experience-list">
                     <li>
-                        <h3>基于 Qt 5 的文本编辑器</h3>
+                        <h3>映客短视频项目基础架构</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            1.服务通信框架，支持c++，python，golang，序列化协议为google protobuf，支持rpc-tcp，rpc-http方式的调用，采用单io，多线程处理方式，底层采用epoll
+                            2.trace系统，后端服务在每一次接口调用时记录上下文信息，并记录调用链以及一些存储调用信息，通过rpc框架抽样上报给trace进行分析
+                            3.服务发现，基于consul，实现服务的自注册和发现。
+                            4.过载保护，根据业务进行服务划分，对划分的业务进行统一管理，实现过载保护，限流，降级一些方案。
                             <br/>
                         </p>
                     </li>
                     <li>
-                        <h3>基于 Flask 的主机监视系统</h3>
+                        <h3>映客短视频项目金币系统</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            1.金币系统，保证账户资金的一致性，订单通过db的事务性实现幂等，账户资金采取可重入的设计保证资金安全。
+                            2.异步解耦，通过消息队列实现高峰消流，保证高峰流量时系统的稳定性。
+                            3.数据库优化，由原来的单库多表方案改为多库多表，流水数据定期归档，减轻数据库压力。
+                            4.风控，包括风控实时引擎，风控准实时引擎，惩罚中心，从业务中提取风控模型，实现对异常用户的检测。
                         </p>
                     </li>
                     <li>
-                        <h3>基于 Live2D 与 clmtrackr 的山寨 Facerig</h3>
+                        <h3>滴滴支付系统重构</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            1.基于业务抽象组件，分层管理，划分业务层，服务层，并将滴滴各业务现支付进行收敛，抽象出订单组件，收银台组件，支付组件，金融业务组件。
+                            2.外部基于消息队列的解耦方案，实现支付系统隔离，方便进行内部的限流，降级，容灾，内部通过rpc进行组件内调用。
+                            3.账户资金一致性的保障，通过可重入，分段提交的方案保证了分布式部署下账户的一致性。
+                            4.高可用的追踪，报警平台。
+                            5.实现每日级别的外部以及业务对账。
                         </p>
-                    </li>
-                    <li>
-                        <h3>如果项目太少，可以在实验楼上找项目做啊:D</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </li>
+                    </li>       
                 </ul>
             </div>
             <div class="trophy info-unit">
@@ -162,23 +165,18 @@
                 <hr>
                 <ul class="experience-list">
                     <li>
-                        <h3>小学生作文二</h3>
+                        <h3>lua_redis</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
+                            解决redis在并发连接数高时，连接性能下降的问题，主要通过redis连接池预加载，连接快速复用的方式保证高并发下的性能，修复已经提交并被接纳。
                         </p>
                     </li> 
                     <li>
-                        <h3>曾获统一冰红茶“再来一瓶”奖</h3>
+                        <h3>swoole（项目组成员）</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
+                            主要支持swoole event模块，加入了对底层epoll的支持
                         </p>
                     </li> 
-                    <li>
-                        <h3>这一行也是为了凑版面</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam。
-                        </p>
-                    </li>                     
+                                   
             </div>
             <div class="aboutme info-unit right-paragraph">
                 <h2 class="info-header"><i class="iconfont icon-flower"></i> <span class="info-title">自我评价</span></h2>
